@@ -1,0 +1,9 @@
+#+title: The Proof Construction Blog
+
+This is my blog.
+
+To build it locally, you need either nix or Cabal.
+
+Within the cloned directory, execute the following:
+1. ~nix-shell~ (optional, if you already have Cabal)
+2. ~cabal new-run site watch~

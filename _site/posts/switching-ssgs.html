@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switching SSGs - Proof Construction</title>
+  <link rel="stylesheet" href="../css/default.css" />
+</head>
+
+    <body>
+      <header>
+<nav>
+  <div class="logo">
+    <h1>Proof Construction</h1>
+  </div>
+  <div id="sitelinks">
+    <a href="../">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Posts</a>
+    <a href="https://github.com/proofconstruction">Code</a>
+  </div>
+</nav>
+</header>
+
+
+        <main role="main">
+            <article>
+  <link rel="stylesheet" href="../css/syntax.css" />
+  <section class="header">
+    August 18, 2020
+    
+  </section>
+  <section>
+    <h2>Switching SSGs</h2>
+  </section>
+  <section>
+    <h3 id="motivation">Motivation</h3>
+<p>I originally built this blog with Jekyll, mostly because it was popular and relatively straightforward, and I saw it had something to do with GitHub Pages where I wanted to host this site.</p>
+<p>Eventually, as with all things, the bikeshedding started, and I began searching for reasons to move off it. There are some ergonomic factors I consider when evaluating the tech I’m using, and here are a few issues with Jekyll I came up with at the time:</p>
+<ol type="1">
+<li>Jekyll isn’t very transparent about what it’s actually doing at any given time.</li>
+<li>It wasn’t clear how to change compilation logic if I wanted to.</li>
+<li>Automatic syntax highlighting wasn’t working consistently between Github Pages and my local environment, and at the time I didn’t want to write any CSS.</li>
+<li>I don’t find Ruby to be as expressive or concise as I’d like a language I’m frequently writing in to be.</li>
+</ol>
+<p>Most of these are “me-problems”. I didn’t want to read the docs to figure out how to fix these things. I had already made up my mind to move to something else.</p>
+<h3 id="alternatives">Alternatives</h3>
+<p>I’ve looked at a few alternatives to Jekyll:</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<colgroup>
+<col class="org-left" />
+<col class="org-left" />
+<col class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">
+Static Generator
+</th>
+<th scope="col" class="org-left">
+ 
+</th>
+<th scope="col" class="org-left">
+Configuration Language
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">
+Hugo
+</td>
+<td class="org-left">
+ 
+</td>
+<td class="org-left">
+Go
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Cobalt
+</td>
+<td class="org-left">
+ 
+</td>
+<td class="org-left">
+Rust
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Octopress
+</td>
+<td class="org-left">
+ 
+</td>
+<td class="org-left">
+HTML
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Hakyll
+</td>
+<td class="org-left">
+ 
+</td>
+<td class="org-left">
+Haskell
+</td>
+</tr>
+<tr>
+<td class="org-left">
+Styx
+</td>
+<td class="org-left">
+ 
+</td>
+<td class="org-left">
+Nix
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ultimately the 4th reason won; I can write Ruby or whatever else if I have to, but absent other reasons, I don’t <em>like</em> to. Haskell is much more comfortable for me to work and think in.</p>
+<p><em>(I also <a href="./nix-and-nixos.md">really like Nix</a>, and still plan to give Styx a shot, but wasn’t able to get it running by the time I first wrote this, and haven’t tried since.)</em></p>
+<h3 id="requirements">Requirements</h3>
+<p>I’m pretty minimalist as far as design things go, and rather like the default Hakyll layout. I decided to stick with that for a while and try to get the features I wanted working:</p>
+<ol type="1">
+<li>Syntax highlighting. This one is a must-have, and it wasn’t working correctly before.</li>
+<li>External code inclusion, so I can link in files to make code snippets rather than copy and paste things.</li>
+<li>LaTeX support.</li>
+</ol>
+<h3 id="problems-solved">Problems Solved</h3>
+<p>The first thing to do was make sure I could include code snippets in posts and have them lexed and colored correctly. For some reason, I had a lot of trouble making this work with Jekyll + Rouge, so I was eager to see what could be done with Hakyll.</p>
+<p>It turned out to be tremendously easy! I followed this <a href="http://blog.tpleyer.de/posts/2019-04-21-external-code-inclusion-with-hakyll.html">excellent explanation</a> and included all the functions there into my <code>site.hs</code>. This also took care of the second problem, of including code from other files.</p>
+<p>Unfortunately, <code>skylighting</code> (the syntax highlighting library used by Pandoc) doesn’t have support for the nix expression language yet. This led to some weirdness in the <a href="./nixos.md">last post</a> which is still unresolved.</p>
+<p>LaTeX support was added by importing the MathJax, and later KaTeX scripts, but this is also unsatisfying. I don’t want to force people to run JS when they visit my site, and the extra request and rendering time does slow things down a bit.</p>
+<h3 id="a-departure">A Departure</h3>
+<p>I currently live in a place where requests to many popular sites are subject to various forms of filtering and thus don’t always work as intended. Two of the missing pieces are githubusercontent and some requests to S3, which make working with open source software quite challenging.</p>
+<p>I had to give up Hakyll (and Haskell generally) for a while because Stackage and Hackage were inaccessible. Looking for alternatives, and being an Emacs junkie, I found <a href="https://github.com/bastibe/org-static-blog">org-static-blog</a>, which worked extremely well but ended up being too limiting. Now I’m back on Hakyll, but I do miss native support for reading org-mode files, which <a href="https://github.com/jaspervdj/hakyll/issues/700">doesn’t work in Hakyll yet</a>.</p>
+<h3 id="future-work">Future Work</h3>
+<p>The syntax highlighting done by Pandoc isn’t exactly what I want. What I’d really like is for the generated CSS to exactly match what I see in Emacs, so when I get some time, I’d like to see about using <a href="https://hackage.haskell.org/package/hakyll-3.1.2.2/docs/Hakyll-Core-UnixFilter.html">Hakyll’s shell support</a> to invoke Emacs, which could then crop and <code>htmlize</code> the buffer and save the result, so Hakyll could directly import that. It’d be a decent amount of work.</p>
+  </section>
+</article>
+
+        </main>
+
+    </body>
+</html>
