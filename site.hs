@@ -63,7 +63,8 @@ main = hakyllWith config $ do
 
 --------------------------------------------------------------------------------
 config = defaultConfiguration
-  { previewHost = "0.0.0.0"
+  { destinationDirectory = "docs"
+  , previewHost = "0.0.0.0"
   , inMemoryCache = True
   }
 
