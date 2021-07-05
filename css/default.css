@@ -64,6 +64,13 @@ footer {
     font-family:"Fira Code",sans-serif;
 }
 
+blockquote {
+    background-color: #f2f2f2;
+    padding: .5rem;
+    line-height:1.8rem;
+    border-radius: 10px;
+    overflow: auto;
+}
 /*==================*/
 /* Paragraph Text   */
 /*==================*/

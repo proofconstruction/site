@@ -3,20 +3,33 @@ title: Introduction to Natural Kinds
 date: 2021-06-30
 ---
 
+From the Internet Encyclopedia of Philosophy:
 
-### The Idea
+>A large part of our exploration of the world consists in categorizing or classifying the objects and processes we encounter, both in scientific and everyday contexts. There are various, perhaps innumerable, ways to sort objects into different kinds or categories, but it is commonly assumed that, among the countless possible types of classifications, one group is privileged. Philosophy refers to such categories as *natural kinds*. Standard examples of such kinds include fundamental physical particles, chemical elements, and biological species. The term *natural* does not imply that natural kinds ought to categorize only naturally occurring stuff or objects. Candidates for natural kinds can include man-made substances, such as synthetic elements, that can be created in a laboratory. The naturalness in question is not the naturalness of the entities being classified, but that of the groupings themselves. Groupings that are artificial or arbitrary are not natural; they are invented or imposed on nature.  Natural kinds, on the other hand, are not invented, and many assume that scientific investigations should discover them.
 
-Various forms of realist hold that things, loosely construed, exist independently of people and their perception of those things. Usually, these things are grouped together in some way, to facilitate analysis by reference to the collection.
+Philosophical realists hold that things, loosely construed, exist independently of people and their perception of those things. Often, these things are grouped together in some way,  facilitating their analysis by reference to their collection.
 
-Some collections, it is hoped, are _natural_, in the sense that they are described by some property or properties that determine those collections uniquely and absolutely, and where no such property is the self-referential class-membership property. In other words:
+Some such collections, it is hoped, are _natural_, in the sense that they are described by some property that determines those collections uniquely and absolutely.
+
+Under this reasoning, the class of all humans would be a natural kind, because (presumably) there is a property or set of properties that humans have and nothing else non-human has. By contrast, the class containing
+
+- a single human,
+- the color red, and
+- a random integer
+
+would not constitute a natural class, because there are properties shared by these elements that are not exclusive to them, and because each has at least one property that does not hold of the others.
+
+### Getting More Precise
+In other words:
 
 - the collection $K_P$ contains all things $x$ such that property $P$ holds of $x$,
-- there is no $y$ in $K_P$ for which $P$ does not hold, and
-- $K_P$ cannot be given by $P = \text{"is a member of $K_P$"}$.
+- there is no $y$ in $K_P$ for which $P$ does not hold, i.e. such that $\neg Py$,
+
+We must also stipulate that no such property is the self-referential class-membership property:
+
+- $K_P$ cannot be given by $Px = \text{"x is a member of $K_P$"}$.
 
 The extension to the case where $K$ is determined by a family of properties is straightforward.
-
-Under this reasoning, the class of all humans would be a natural kind, because presumably there is a property or set of properties that humans have and nothing else non-human has. By contrast, the class containing a single human - say, the author - the color red, and a random integer, would not constitute a natural class, because there are properties shared by these elements that are not exclusive to them, and because each has at least one property that does not hold of the others.
 
 ### Where I'm Going
 
@@ -29,5 +42,4 @@ Various structural approaches to natural kinds exist, which try to characterize 
 
 ### Further Reading
 
-For a far lengthier discussion and tons of citations, check out the [SEP page](https://plato.stanford.edu/entries/natural-kinds/).
-
+For a far lengthier discussion and tons of citations, check out the [SEP page](https://plato.stanford.edu/entries/natural-kinds/), or the [IEP entry quoted above](https://iep.utm.edu/nat-kind/).
