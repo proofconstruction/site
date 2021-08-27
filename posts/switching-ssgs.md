@@ -77,7 +77,7 @@ I've looked at a few alternatives to Jekyll:
 
 Ultimately the 4th reason won; I can write Ruby or whatever else if I have to, but absent other reasons, I don't *like* to. Haskell is much more comfortable for me to work and think in.
 
-*(I also [really like Nix](./nix-and-nixos.md), and still plan to give Styx a shot, but wasn't able to get it running by the time I first wrote this, and haven't tried since.)*
+*(I also [really like Nix](./nixos.html), and still plan to give Styx a shot, but wasn't able to get it running by the time I first wrote this, and haven't tried since.)*
 
 
 ### Requirements

@@ -2,8 +2,6 @@
 
 This is my blog.
 
-To build it locally, you need either nix or Cabal.
+To build it locally, you need [[https://nixos.org/download.html][nix]].
 
-Within the cloned directory, execute the following:
-1. ~nix-shell~ (optional, if you already have Cabal)
-2. ~cabal new-run site watch~
+Within the cloned directory, execute ~nix-build release.nix~.

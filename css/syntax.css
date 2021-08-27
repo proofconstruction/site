@@ -65,15 +65,16 @@ p code {
     color: #000000;
     background-color: #f0efef;
     font-family: 'Fira Code', monospace;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
     padding: 2px;
 }
 
 .sourceCode {
     color: #2e3440;
     font-family: 'Fira Code', monospace;
-    font-size: 15px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
     padding: .5rem;
     border-radius: 10px;
     overflow: auto;
