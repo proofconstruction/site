@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Category of Natural Kinds - Proof Construction</title>
+  <link rel="stylesheet" href="../css/default.css" />
+</head>
+
+    <body>
+      <header>
+<nav>
+  <div class="logo">
+    <h1>Proof Construction</h1>
+  </div>
+  <div id="sitelinks">
+    <a href="../">Home</a>
+    <a href="../about.html">About</a>
+    <a href="../archive.html">Posts</a>
+    <a href="https://github.com/proofconstruction">Code</a>
+  </div>
+</nav>
+</header>
+
+
+        <main role="main">
+            <article>
+  <link rel="stylesheet" href="../css/syntax.css" />
+  <section class="header">
+    September 13, 2021
+    
+  </section>
+  <section>
+    <h2>The Category of Natural Kinds</h2>
+  </section>
+  <section>
+    <p>This is part 3 of the series on natural kinds. The previous post is <a href="./natural-kinds-defined.html">here</a>.</p>
+<p>Having established what natural kinds <em>are</em>, we’re ready to examine maps between them and lift our discussion to the categorical setting. This short post establishes the categorical nature of natural kinds and maps between them.</p>
+<h1 id="onward">Onward</h1>
+<p>In the context of natural kinds, <em>implication</em> (remember, there’s a logic here!) is taken to be the species-genus relation: for natural kinds <span class="math inline"><em>K</em><sub>1</sub>, <em>K</em><sub>2</sub></span>, to say <span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>2</sub></span> is to say <span class="math inline"><em>K</em><sub>1</sub></span> is <em>a species of</em> <span class="math inline"><em>K</em><sub>2</sub></span>.</p>
+<p>This is formalized as follows:</p>
+<p>For kinds <span class="math inline"><em>K</em><sub>1</sub> = (<em>A</em><sub>1</sub>,<em>X</em><sub>1</sub>)</span> and <span class="math inline"><em>K</em><sub>2</sub> = (<em>A</em><sub>2</sub>,<em>X</em><sub>2</sub>)</span>, saying that <span class="math inline"><em>K</em><sub>1</sub></span> is <em>a species of</em> <span class="math inline"><em>K</em><sub>2</sub></span> amounts to:</p>
+<ul>
+<li><span class="math inline">(<em>A</em><sub>1</sub>⊆<em>A</em><sub>2</sub>)</span></li>
+<li><span class="math inline">(<em>X</em><sub>2</sub>⊆<em>X</em><sub>1</sub>)</span></li>
+</ul>
+<p>That is,</p>
+<ul>
+<li>every <span class="math inline"><em>K</em><sub>1</sub></span> individual is also a <span class="math inline"><em>K</em><sub>2</sub></span> individual</li>
+<li>every <span class="math inline"><em>K</em><sub>2</sub></span> trait is also a <span class="math inline"><em>K</em><sub>1</sub></span> trait.</li>
+</ul>
+<p>We have the following theorem (T1), for natural kinds <span class="math inline"><em>K</em><sub>1</sub> = (<em>A</em><sub>1</sub>,<em>X</em><sub>1</sub>)</span> and <span class="math inline"><em>K</em><sub>2</sub> = (<em>A</em><sub>2</sub>,<em>X</em><sub>2</sub>)</span>:</p>
+<p><span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>2</sub></span> iff <span class="math inline"><em>A</em><sub>1</sub> ⊆ <em>A</em><sub>2</sub></span> and <span class="math inline"><em>X</em><sub>2</sub> ⊆ <em>X</em><sub>1</sub></span>.</p>
+<h1 id="upward">Upward</h1>
+<p>Natural kinds, together with the species-genus relation, form a category:</p>
+<p>Let <span class="math inline"><em>K</em> = (<em>A</em>,<em>X</em>)</span> be any natural kind.</p>
+<h3 id="identity-arrow">Identity Arrow</h3>
+<p>By reflexivity of the subset relation, <span class="math inline"><em>A</em> ⊆ <em>A</em></span> and <span class="math inline"><em>X</em> ⊆ <em>X</em></span>, so <span class="math inline"><em>X</em> ⇒ <em>X</em></span>.</p>
+<h3 id="arrow-composition">Arrow Composition</h3>
+<p>Now let <span class="math inline"><em>K</em><sub>1</sub> = (<em>A</em><sub>1</sub>,<em>X</em><sub>1</sub>)</span>, <span class="math inline"><em>K</em><sub>2</sub> = (<em>A</em><sub>2</sub>,<em>X</em><sub>2</sub>)</span>, and <span class="math inline"><em>K</em><sub>3</sub> = (<em>A</em><sub>3</sub>,<em>X</em><sub>3</sub>)</span> be natural kinds and suppose <span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>2</sub></span> and <span class="math inline"><em>K</em><sub>2</sub> ⇒ <em>K</em><sub>3</sub></span>.</p>
+<p>By the theorem (T1) in the previous section, <span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>2</sub></span> iff <span class="math inline"><em>A</em><sub>1</sub> ⊆ <em>A</em><sub>2</sub></span> and <span class="math inline"><em>X</em><sub>2</sub> ⊆ <em>X</em><sub>1</sub></span>, and <span class="math inline"><em>K</em><sub>2</sub> ⇒ <em>K</em><sub>3</sub></span> iff <span class="math inline"><em>A</em><sub>2</sub> ⊆ <em>A</em><sub>3</sub></span> and <span class="math inline"><em>X</em><sub>3</sub> ⊆ <em>X</em><sub>2</sub></span>.</p>
+<p>If <span class="math inline"><em>A</em><sub>1</sub> ⊆ <em>A</em><sub>2</sub></span> and <span class="math inline"><em>A</em><sub>2</sub> ⊆ <em>A</em><sub>3</sub></span>, then <span class="math inline"><em>A</em><sub>1</sub> ⊆ <em>A</em><sub>3</sub></span>, and if <span class="math inline"><em>X</em><sub>3</sub> ⊆ <em>X</em><sub>2</sub></span> and <span class="math inline"><em>X</em><sub>2</sub> ⊆ <em>X</em><sub>1</sub></span>, then <span class="math inline"><em>X</em><sub>3</sub> ⊆ <em>X</em><sub>1</sub></span>, so <span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>3</sub></span> on the assumption that <span class="math inline"><em>K</em><sub>1</sub> ⇒ <em>K</em><sub>2</sub></span> and <span class="math inline"><em>K</em><sub>2</sub> ⇒ <em>K</em><sub>3</sub></span>.</p>
+<p>The subset relation is associative, so evidently this composition is too.</p>
+<p>These facts tell us that natural kinds with the species-genus implication form a category.</p>
+<p>In the next post, we’ll examine some of the categorical features of natural kinds, with an eye to building bridges to other parts of logic and mathematics.</p>
+  </section>
+</article>
+
+        </main>
+
+    </body>
+</html>
